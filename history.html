@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche | True Motorsport Legacy</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --red: #d5001c;
+            --black-dark: #0a0a0a;
+            --black-card: #141414;
+            --gray-dim: #666666;
+            --transition-race: cubic-bezier(0.075, 0.82, 0.165, 1);
+            /* Instant acceleration, smooth braking */
+        }
+
+        /* --- Global Styles --- */
+        body {
+            background-color: var(--black-dark);
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- STEALTH BLACK NAVBAR (Bright History Text) --- */
+        .navbar {
+            background: rgba(10, 10, 10, 0.9) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px 0;
+        }
+
+        .logo-img {
+            height: 40px;
+        }
+
+        .nav-link {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--gray-dim) !important;
+            /* Dim other menus */
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #fff !important;
+        }
+
+        /* Specifically for History Menu: Bright White & Subtle Glow */
+        .nav-link.active-history {
+            color: #ffffff !important;
+            font-weight: 800;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .nav-link.active-history::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--red);
+        }
+
+        /* --- EPIC HERO SECTION --- */
+        .history-hero {
+            height: 85vh;
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.3) 0%, var(--black-dark) 100%),
+                url('https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1080x624/dam/pnr/2021/History/Fire-and-ice-/_MH12422.jpeg/jcr:content/_MH12422.jpeg') center/cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-badge {
+            background: var(--red);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            letter-spacing: 3px;
+            display: inline-block;
+            margin-bottom: 20px;
+            transform: skew(-10deg);
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+
+        .hero-title span {
+            color: var(--red);
+            display: block;
+        }
+
+        /* --- MOTORSPORT TIMELINE --- */
+        .timeline-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* Subtle vertical line down the center */
+        .timeline-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 1px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            z-index: -1;
+        }
+
+        .timeline-row {
+            margin-bottom: 140px;
+            align-items: center;
+        }
+
+        .year-indicator {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.05);
+            line-height: 1;
+            margin-bottom: -10px;
+            transition: color 0.5s ease;
+        }
+
+        .timeline-row:hover .year-indicator {
+            color: rgba(213, 0, 28, 0.2);
+        }
+
+        .timeline-text h2 {
+            font-weight: 800;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-left: 3px solid var(--red);
+            padding-left: 15px;
+        }
+
+        .timeline-text p {
+            font-size: 1.05rem;
+            color: #aaaaaa;
+            text-align: justify;
+        }
+
+        .image-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 6px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .timeline-img {
+            width: 100%;
+            transition: transform 0.8s var(--transition-race);
+        }
+
+        .image-wrapper:hover .timeline-img {
+            transform: scale(1.05) rotate(1deg);
+        }
+
+        /* --- SPORTY & LEGENDS ANIMATIONS (Race-Ready) --- */
+        .anim-race-left {
+            opacity: 0;
+            transform: translateX(-120px) skewX(-4deg) scale(0.95);
+            will-change: transform, opacity;
+            transition: opacity 1.2s var(--transition-race), transform 1.2s var(--transition-race);
+        }
+
+        .anim-race-right {
+            opacity: 0;
+            transform: translateX(120px) skewX(4deg) scale(0.95);
+            will-change: transform, opacity;
+            transition: opacity 1.2s var(--transition-race), transform 1.2s var(--transition-race);
+        }
+
+        .anim-epic-fade {
+            opacity: 0;
+            transform: translateY(60px);
+            will-change: transform, opacity;
+            transition: opacity 1.5s var(--transition-race), transform 1.5s var(--transition-race);
+        }
+
+        /* Active triggers via scroll */
+        .show-race {
+            opacity: 1 !important;
+            transform: translateX(0) skewX(0) scale(1) !important;
+        }
+
+        .show-epic {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #050505;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: #555;
+        }
+
+        @media (max-width: 991px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .timeline-row {
+                margin-bottom: 80px;
+            }
+
+            .year-indicator {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="testing.html">
+                <img src="asset/pngimg.com - porsche_logo_PNG9.png" class="logo-img" alt="Porsche Logo">
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="models.html">Models</a></li>
+                    <li class="nav-item"><a class="nav-link" href="performance.html">Performance</a></li>
+                    <li class="nav-item"><a class="nav-link active-history" href="history.html">History</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="history-hero">
+        <div class="container anim-epic-fade">
+            <div class="hero-badge">TRUE RACING HERITAGE</div>
+            <h1 class="hero-title">BORN ON THE TRACK.<span>IMMORTALIZED AS LEGENDS.</span></h1>
+            <p class="fs-5 text-secondary mt-3 max-w-600 fw-light">From the brutal sands of Paris-Dakar to the absolute
+                supremacy on the sacred asphalt of Le Mans.</p>
+        </div>
+    </header>
+
+    <section class="timeline-section container overflow-hidden">
+
+        <div class="row timeline-row flex-row-reverse">
+            <div class="col-lg-6 mb-4 mb-lg-0 anim-race-right">
+                <div class="image-wrapper">
+                    <img src="https://petrolicious.com/cdn/shop/articles/Porsche-Rallye-5.jpg?v=1742071148"
+                        class="timeline-img" alt="Porsche Rally">
+
+                </div>
+                <div class="col-lg-6 pe-lg-5 timeline-text anim-race-left">
+                    <div class="year-indicator">1984 - 1986</div>
+                    <h2>Conquering the Unforgiving Desert</h2>
+                    <p>Porsche proved to the world that high-performance sports cars are not just masters of the track.
+                        Through the Porsche 953 and the legendary 959 supercar, they dominated the most grueling
+                        competition on earth: the **Paris-Dakar Rally**. The advanced all-wheel-drive (AWD) system,
+                        tested under the torturous African sands, became the ultimate foundation for the iconic AWD
+                        technology driving today's commercial Porsche 911s.</p>
+                </div>
+            </div>
+
+            <div class="row timeline-row">
+                <div class="col-lg-6 mb-4 mb-lg-0 anim-race-left">
+                    <div class="image-wrapper">
+                        <img src="https://images.squarespace-cdn.com/content/v1/5caed8960cf57d49530e8c60/fb2c698e-fada-4dd9-8610-ddbc252c208c/art-MG-Porsche917-69+h.jpg"
+                            class="timeline-img" alt="Porsche 917">
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5 timeline-text anim-race-right">
+                    <div class="year-indicator">1970 - 1971</div>
+                    <h2>The 917 Monster & The First Throne</h2>
+                    <p>The deafening roar of the Flat-12 engine, death-defying radical aerodynamics, and limitless
+                        bravery birthed Porsche's first absolute victory at the 24 Hours of Le Mans. The Porsche 917
+                        didn't just win a race; it shattered distance records that stood for decades, establishing a
+                        visceral dominance that changed the face of global endurance racing forever.</p>
+                </div>
+            </div>
+
+            <div class="row timeline-row flex-row-reverse">
+                <div class="col-lg-6 mb-4 mb-lg-0 anim-race-right">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/736x/c1/51/33/c1513361bd07747591113d5633b3ca20.jpg"
+                            class="timeline-img" alt="Porsche Group C">
+                    </div>
+                </div>
+                <div class="col-lg-6 pe-lg-5 timeline-text anim-race-left">
+                    <div class="year-indicator">1982 - 1987</div>
+                    <h2>The Golden Era of Group C</h2>
+                    <p>The golden age of mechanical engineering gave rise to the masterpiece Porsche 956 and its
+                        successor, the 962. Utilizing innovative aluminum monocoque chassis and ground-effect
+                        aerodynamics, this combat fleet ruthlessly swept world championships. An insane benchmark was
+                        set when Stefan Bellof blitzed the terrifying Nürburgring Nordschleife in 6 minutes and 11
+                        seconds with the Porsche 956—a legendary lap time that remained unbroken for 35 years.</p>
+                </div>
+            </div>
+
+            <div class="row timeline-row">
+                <div class="col-lg-6 mb-4 mb-lg-0 anim-race-left">
+                    <div class="image-wrapper">
+                        <img src="https://res.cloudinary.com/dmwcbhehi/image/upload/f_auto/q_auto/v1770893689/2026_PorscheMotorsport_RangeVisual_small_eg4pka.png"
+                            class="timeline-img" alt="Porsche Modern Hypercar">
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5 timeline-text anim-race-right">
+                    <div class="year-badge"
+                        style="transform: skew(-10deg); font-size: 1rem; margin-bottom: 15px; font-weight: 700;">MODERN
+                        ERA</div>
+                    <h2>The Symphony of Hybrids & Hypercars</h2>
+                    <p>Porsche reclaimed Le Mans glory for three consecutive years (2015–2017) through the technological
+                        marvel of electrification in the Porsche 919 Hybrid. Today, that competitive fire burns within
+                        the heart of the **Porsche 963 LMDh/Hypercar**. Mating the brute force of a Twin-Turbo V8 with
+                        the thrust of a racing hybrid system, Porsche continues to lead modern motorsport civilization
+                        at the highest echelon.</p>
+                </div>
+            </div>
+
+    </section>
+
+    <section class="py-5 text-center anim-epic-fade"
+        style="background: linear-gradient(180deg, var(--black-dark) 0%, #050505 100%);">
+        <div class="container py-5">
+            <h2 class="mb-4" style="font-weight: 900;">FEEL THE INTENSITY</h2>
+            <p class="mb-5 text-secondary">Every piece of technology we forge under the racing banner is destined for
+                your garage.</p>
+            <a href="models.html" class="btn btn-outline-light px-5 py-3 text-uppercase fw-bold"
+                style="border-radius: 0; letter-spacing: 2px; font-size: 0.8rem; border-color: rgba(255,255,255,0.3); transition: all 0.3s ease;">
+                Explore The Models
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-uppercase">
+            <p class="mb-0">&copy; 2026 Porsche. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Custom Intersection Observer for Sporty Racing Effects
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -60px 0px"
+        };
+
+        const raceObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Apply visual trigger class based on animation type
+                    if (entry.target.classList.contains('anim-race-left') || entry.target.classList.contains('anim-race-right')) {
+                        entry.target.classList.add('show-race');
+                    } else if (entry.target.classList.contains('anim-epic-fade')) {
+                        entry.target.classList.add('show-epic');
+                    }
+                    // Remove unobserve if you want the animations to replay when scrolling up and down
+                    raceObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Register all animated elements
+        document.querySelectorAll('.anim-race-left, .anim-race-right, .anim-epic-fade').forEach(el => raceObserver.observe(el));
+    </script>
+</body>
+
+</html>

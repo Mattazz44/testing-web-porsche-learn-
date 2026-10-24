@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche 911 GT1-98 | Details</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --red: #d5001c;
+            --black-dark: #0a0a0a;
+            --black-card: #141414;
+            --gray-text: #a0a0a0;
+            --transition-speed: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* --- Global Styles --- */
+        body {
+            background-color: var(--black-dark);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            background: rgba(10, 10, 10, 0.85) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 15px 0;
+            transition: all 0.3s var(--transition-speed);
+        }
+        
+        .logo-img {
+            height: 40px;
+        }
+
+        .nav-link {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #ccc !important;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #fff !important;
+        }
+
+        /* --- Main Content Layout --- */
+        .detail-page-main {
+            padding-top: 120px;
+            padding-bottom: 60px;
+        }
+
+        .left-column img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+        }
+
+        /* --- Specifications Card --- */
+        .specs {
+            background: var(--black-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .specs h3 {
+            color: var(--red);
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            margin-top: 20px;
+        }
+
+        .specs h3:first-child {
+            margin-top: 0;
+        }
+
+        .specs p {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 15px;
+            color: #fff;
+        }
+
+        .specs p:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        /* --- Right Column Typography --- */
+        .right-column h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .right-column h3 {
+            font-size: 1.1rem;
+            color: var(--red);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .right-column p {
+            color: #ccc;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        blockquote {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-style: italic;
+            color: #fff;
+            border-left: 4px solid var(--red);
+            padding-left: 20px;
+            margin: 40px 0;
+            background: linear-gradient(90deg, rgba(213,0,28,0.1) 0%, transparent 100%);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* --- Gallery Section --- */
+        .gallery {
+            margin-top: 80px;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .gallery h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background-color: var(--red);
+            border-radius: 2px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+            aspect-ratio: 16/9;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s var(--transition-speed);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* --- Scroll Animation --- */
+        .fade-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--transition-speed), transform 0.8s var(--transition-speed);
+        }
+
+        .fade-section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 40px 20px;
+            background: #050505;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+            color: #666;
+            letter-spacing: 1px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            .right-column h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="asset/pngimg.com - porsche_logo_PNG9.png" class="logo-img" alt="Porsche Logo">
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#models">Models</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#performance">Performance</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#history">History</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="detail-page-main container">
+        <div class="row g-5">
+            
+            <div class="col-lg-5 left-column fade-section">
+                <img src="asset/Porsche-911-GT1-96-Profile-Large.png" alt="Side profile of the Porsche 911 GT1-98">
+                
+                <div class="specs">
+                    <h3>MODEL</h3>
+                    <p>Porsche 911 GT1-98</p>
+                    
+                    <h3>YEAR</h3>
+                    <p>1998</p>
+                    
+                    <h3>ENGINE</h3>
+                    <p>3.2 L Watercooled Twin-Turbo Flat-6</p>
+                    
+                    <h3>POWER</h3>
+                    <p>542 bhp @ 7200 rpm</p>
+                    
+                    <h3>TORQUE</h3>
+                    <p>465 ft lbs @ 5000 rpm</p>
+
+                    <h3>WEIGHT</h3>
+                    <p>~950 kg</p>
+
+                    <h3>CHASSIS</h3>
+                    <p>Carbon-fiber Monocoque</p>
+                </div>
+            </div>
+
+            <div class="col-lg-7 right-column fade-section" style="transition-delay: 0.2s;">
+                <h2>Porsche 911 GT1-98</h2>
+                <h3>The Carbon-Fiber Le Mans Conqueror</h3>
+                
+                <p><strong>Class:</strong> FIA GT1 Category (Le Mans Prototype)</p>
+                
+                <p>The Porsche 911 GT1-98 represents a radical evolution of the 1996 and 1997 GT1 variants. Built specifically to conquer the strict regulations of the FIA GT1 category, this car was Porsche Motorsport's first masterpiece to completely abandon the traditional steel chassis structure, shifting entirely to an ultra-lightweight and exceptionally rigid <strong>carbon-fiber monocoque</strong>.</p>
+                
+                <blockquote>"The 911 GT1-98 combined pure aerodynamic aggression with bulletproof reliability. It was a true masterpiece of endurance engineering."</blockquote>
+                
+                <p>Powered by the legendary 3.2-liter water-cooled twin-turbocharged flat-6 engine, the powerhouse was heavily optimized according to Le Mans air-restrictor mandates to unlock maximum mechanical endurance. Its aerodynamic framework was re-engineered significantly lower and wrapped in extreme sweeping curves to channel airflow as efficiently as possible over its massive rear wing.</p>
+                
+                <h2 class="mt-5">Race Results</h2>
+                <h3>Overall Victory at the 1998 24 Hours of Le Mans</h3>
+                
+                <p>The most historic breakthrough for the 911 GT1-98 unfolded at the world's most prestigious endurance race, the 1998 24 Hours of Le Mans. Going wheel-to-wheel against brutal factory competition from heavyweights like the Toyota GT-One, Mercedes-Benz CLK GTR, and Nissan R390, Porsche relied on calculated tactical consistency and absolute mechanical durability.</p>
+                
+                <p>The #26 race car, masterfully driven by the iconic trio of <strong>Allan McNish, Stéphane Ortelli, and Laurent Aïello</strong>, crossed the finish line to secure the absolute 1st place overall podium (Overall Winner), closely flanked by the sister #27 GT1-98 car in second place. This spectacular 1-2 finish beautifully marked the celebration of Porsche's 50th anniversary right on the tarmac of the legendary Circuit de la Sarthe.</p>
+            </div>
+
+        </div>
+
+        <section class="gallery fade-section">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://www.goodwood.com/globalassets/.road--racing/race/historic/2017/march/5-things-911-gt1/75mm_17_nickdungan_goodwood_gt1_1173.jpg?rxy=0.5,0.5" alt="Porsche Racing DNA Heritage">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/le-mans-1998-911-gt1-1528403866.jpg" alt="Le Mans Track Context Image">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://automobilist.com/cdn/shop/articles/LM100_Porsche911C_Magazine_Header_1000x563_363cbe04-9ae6-447a-ac83-96c3ac8dad7a.jpg?v=1685278071&width=2048" alt="Porsche 911 GT1-98 Action View">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://car-images.bauersecure.com/wp-images/167654/porschegt1_1.jpg" alt="Porsche Performance Design Elements">
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container text-uppercase">
+            <p class="mb-0">&copy; 2026 Porsche. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche Taycan Turbo S | Details</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --red: #d5001c;
+            --black-dark: #0a0a0a;
+            --black-card: #141414;
+            --gray-text: #a0a0a0;
+            --transition-speed: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* --- Global Styles --- */
+        body {
+            background-color: var(--black-dark);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            background: rgba(10, 10, 10, 0.85) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 15px 0;
+            transition: all 0.3s var(--transition-speed);
+        }
+        
+        .logo-img {
+            height: 40px;
+        }
+
+        .nav-link {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #ccc !important;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #fff !important;
+        }
+
+        /* --- Main Content Layout --- */
+        .detail-page-main {
+            padding-top: 120px;
+            padding-bottom: 60px;
+        }
+
+        .left-column img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+        }
+
+        /* --- Specifications Card --- */
+        .specs {
+            background: var(--black-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .specs h3 {
+            color: var(--red);
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            margin-top: 20px;
+        }
+
+        .specs h3:first-child {
+            margin-top: 0;
+        }
+
+        .specs p {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 15px;
+            color: #fff;
+        }
+
+        .specs p:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        /* --- Right Column Typography --- */
+        .right-column h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .right-column h3 {
+            font-size: 1.1rem;
+            color: var(--red);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .right-column p {
+            color: #ccc;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        blockquote {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-style: italic;
+            color: #fff;
+            border-left: 4px solid var(--red);
+            padding-left: 20px;
+            margin: 40px 0;
+            background: linear-gradient(90deg, rgba(213,0,28,0.1) 0%, transparent 100%);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* --- Gallery Section --- */
+        .gallery {
+            margin-top: 80px;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .gallery h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background-color: var(--red);
+            border-radius: 2px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+            aspect-ratio: 16/9;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s var(--transition-speed);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* --- Scroll Animation --- */
+        .fade-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--transition-speed), transform 0.8s var(--transition-speed);
+        }
+
+        .fade-section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 40px 20px;
+            background: #050505;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+            color: #666;
+            letter-spacing: 1px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            .right-column h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="asset/pngimg.com - porsche_logo_PNG9.png" class="logo-img" alt="Porsche Logo">
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#models">Models</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#performance">Performance</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#history">History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#dealer">Dealer</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="detail-page-main container">
+        <div class="row g-5">
+            
+            <div class="col-lg-5 left-column fade-section">
+                <img src="https://www.stuttcars.com/wp-content/uploads/2025/04/Porsche-Taycan-Turbo-GT-Profile-Large.png" alt="Side profile of the Porsche Taycan Turbo S">
+                
+                <div class="specs">
+                    <h3>MODEL</h3>
+                    <p>Taycan Turbo S</p>
+                    
+                    <h3>GENERATION</h3>
+                    <p>Gen 2 Facelift (Latest)</p>
+                    
+                    <h3>PROPULSION</h3>
+                    <p>Dual Electric Motors (AWD)</p>
+                    
+                    <h3>MAX POWER</h3>
+                    <p>Up to 938 bhp (with Overboost)</p>
+                    
+                    <h3>TORQUE</h3>
+                    <p>818 lb-ft (1,110 Nm) Peak</p>
+
+                    <h3>0-100 KM/H (0-62 MPH)</h3>
+                    <p>2.4 seconds</p>
+
+                    <h3>ARCHITECTURE</h3>
+                    <p>800-Volt Charging Platform</p>
+                </div>
+            </div>
+
+            <div class="col-lg-7 right-column fade-section" style="transition-delay: 0.2s;">
+                <h2>Porsche Taycan Turbo S</h2>
+                <h3>The Electrified Blueprint of Uncompromised Driving Dynamics</h3>
+                
+                <p><strong>Class:</strong> High-Performance All-Electric Sports Sedan</p>
+                
+                <p>The Porsche Taycan Turbo S represents a landmark achievement in automotive history, proving conclusively that electric propulsion can deliver absolute emotional engagement. Built upon a groundbreaking 800-volt electrical architecture, the Taycan delivers relentless, repeatable high-speed acceleration while handling corners with the distinct structural confidence expected of an elite sports car.</p>
+                
+                <blockquote>"The Taycan Turbo S does not simply accelerate; it warps reality. It is the absolute benchmark for high-performance electric vehicles."</blockquote>
+                
+                <p>Propelled by advanced dual permanent magnet synchronous motors, the latest Taycan Turbo S unlocks an astonishing output of up to 938 horsepower during launch control overboost. Unlike standard electric vehicles, it utilizes an innovative 2-speed transmission on the rear axle, maximizing low-end launch force while maintaining incredible top-end mechanical efficiency.</p>
+                
+                <h2 class="mt-5">Electrified Heritage</h2>
+                <h3>Instantaneous Response and High-Volt Innovation</h3>
+                
+                <p>While traditional platforms rely on engine displacement, the Taycan commands its path via continuous electronic management and instant torque vectoring.</p>
+                
+                <p>Featuring a significantly optimized battery layout and upgraded thermal management, it charges from 10% to 80% in just 18 minutes under optimal conditions. With standard Porsche Ceramic Composite Brakes (PCCB), rear-axle steering, and adaptive air suspension, the Taycan Turbo S beautifully preserves Porsche's motorsport DNA for a new generation.</p>
+            </div>
+
+        </div>
+
+        <section class="gallery fade-section">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://www.stuttcars.com/wp-content/uploads/2024/09/2025-Porsche-Taycan-Turbo-GT-4-1536x864.jpg" alt="Porsche Performance Context">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.stuttcars.com/wp-content/uploads/2024/09/2025-Porsche-Taycan-Turbo-GT-13.jpg" alt="Electric Track Blueprint">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.stuttcars.com/wp-content/uploads/2024/09/2025-Porsche-Taycan-Turbo-GT-8-1536x864.jpg" alt="Porsche Taycan Turbo S Action View">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.stuttcars.com/wp-content/uploads/2024/09/2025-Porsche-Taycan-Turbo-GT-7-1536x864.jpg" alt="Porsche Modern Design Accent">
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container text-uppercase">
+            <p class="mb-0">&copy; 2026 Porsche. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+/* --- Global Resets & Basic Styling --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #111;
+    color: white;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+/* --- Header & Navigation --- */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px); /* Modern frosted glass effect */
+    padding: 15px 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #e10600;
+}
+
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.video-container iframe {
+    width: 100vw;
+    height: 56.25vw; /* 16:9 aspect ratio */
+    min-width: 177.77vh; /* fallback for portrait screens */
+    min-height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 12px 25px;
+    background: #e10600;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #b00400;
+}
+
+/* --- Models & Racing Section --- */
+.models, .racing-models {
+    padding: 80px 20px;
+    background-color: #181818;
+    text-align: center;
+}
+
+.models {
+    background-color: #111;
+}
+
+.model-container, .racing-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.model-card, .racing-card {
+    background-color: #222;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px; /* Space for the button */
+}
+
+.model-card:hover, .racing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(225, 6, 0, 0.3);
+}
+
+.model-card img, .racing-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.model-card h3, .racing-card h3 {
+    padding: 15px 10px;
+    margin: 0;
+    font-size: 18px;
+    flex-grow: 1; /* Pushes button to bottom */
+}
+
+.card-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #e10600;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 auto 10px auto;
+    transition: background-color 0.3s;
+}
+
+.card-btn:hover {
+    background-color: #b00400;
+}
+
+/* --- Porsche Center & Pre-Owned Sections --- */
+.porsche-center, .pre-owned {
+    display: flex;
+    padding: 80px 50px;
+    align-items: center;
+    background-color: #111;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.center-content, .pre-owned-text, .center-image, .pre-owned-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.center-content h2, .pre-owned-text h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.center-content p, .pre-owned-text p {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.center-image img, .pre-owned-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.search-box {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #555;
+    background-color: #222;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* --- Parallax Section --- */
+.parallax {
+    height: 400px;
+    background-image: url('https://files.porsche.com/filestore/image/multimedia/none/992-gt3-rs-modelimage-sideshot/model/cfbbab8a-33b6-11ed-80f1-005056bbdc38/porsche-model.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+.parallax .text {
+    z-index: 1;
+}
+.parallax::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+.parallax h2 {
+    font-size: 42px;
+}
+.parallax p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* --- Footer --- */
+footer {
+    background: #000;
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+/* --- Detail Page Styles (Tribute & GT3 Cup) --- */
+.detail-page-main {
+    padding: 120px 0 50px 0; /* Add top padding to clear fixed header */
+}
+
+.detail-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 30px auto;
+    gap: 30px;
+    background-color: #181818;
+    padding: 30px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
+
+.left-column, .right-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+.left-column img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.specs {
+    margin-top: 20px;
+}
+.specs h3 {
+    margin-top: 15px;
+    color: #aaa;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.specs p {
+    font-size: 18px;
+    color: #fff;
+}
+
+.right-column h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e10600;
+    padding-bottom: 10px;
+}
+
+.right-column p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #ddd;
+}
+
+blockquote {
+    font-style: italic;
+    color: #fff;
+    margin: 25px 0;
+    padding-left: 20px;
+    border-left: 3px solid #e10600;
+    font-size: 1.2em;
+}
+
+.gallery {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.gallery h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
