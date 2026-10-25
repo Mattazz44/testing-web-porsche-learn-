@@ -217,9 +217,136 @@
             font-family: 'Montserrat', sans-serif;
         }
 
+        .navbar-toggler {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 10px;
+            border-radius: 6px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 2px rgba(213, 0, 28, 0.5);
+            outline: none;
+        }
+
+        /* --- Mobile Responsive Rules --- */
+        @media (max-width: 991.98px) {
+            .navbar {
+                padding: 12px 0;
+            }
+
+            .navbar-collapse {
+                background: rgba(12, 12, 12, 0.98);
+                backdrop-filter: blur(25px);
+                -webkit-backdrop-filter: blur(25px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 12px;
+                padding: 18px 20px;
+                margin-top: 12px;
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+            }
+
+            .navbar-nav {
+                text-align: center;
+                gap: 5px;
+            }
+
+            .nav-link {
+                padding: 10px 0 !important;
+                font-size: 0.85rem !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            }
+
+            .nav-item:last-child .nav-link {
+                border-bottom: none;
+            }
+        }
+
         @media (max-width: 768px) {
-            .gallery-grid { grid-template-columns: 1fr; }
-            .right-column h2 { font-size: 1.8rem; }
+            .detail-page-main {
+                padding-top: 90px;
+                padding-bottom: 35px;
+            }
+
+            .left-column img {
+                margin-bottom: 20px;
+            }
+
+            .specs {
+                padding: 20px 18px;
+            }
+
+            .specs h3 {
+                font-size: 0.75rem;
+                letter-spacing: 1.5px;
+            }
+
+            .specs p {
+                font-size: 0.92rem;
+                padding-bottom: 12px;
+            }
+
+            .right-column h2 {
+                font-size: clamp(1.4rem, 6vw, 1.8rem);
+                letter-spacing: 1.5px;
+                line-height: 1.25;
+                margin-bottom: 12px;
+            }
+
+            .right-column h3 {
+                font-size: 0.95rem;
+                letter-spacing: 1px;
+                margin-bottom: 18px;
+            }
+
+            .right-column p {
+                font-size: 0.92rem;
+                line-height: 1.7;
+                margin-bottom: 20px;
+            }
+
+            blockquote {
+                font-size: 0.95rem;
+                margin: 25px 0;
+                padding: 15px 16px;
+                border-left-width: 3px;
+            }
+
+            .gallery {
+                margin-top: 45px;
+            }
+
+            .gallery h2 {
+                font-size: 1.5rem;
+                margin-bottom: 25px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            footer {
+                padding: 30px 15px;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-img {
+                height: 32px;
+            }
+
+            .specs {
+                padding: 16px 14px;
+            }
+
+            .specs p {
+                font-size: 0.86rem;
+            }
+
+            .right-column h2 {
+                font-size: clamp(1.3rem, 7vw, 1.6rem);
+            }
         }
     </style>
 </head>
@@ -227,7 +354,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="testing.html">
                 <img src="asset/pngimg.com - porsche_logo_PNG9.png" class="logo-img" alt="Porsche Logo">
             </a>
             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
@@ -235,10 +362,9 @@
             </button>
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html#models">Models</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#performance">Performance</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#history">History</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#dealer">Dealer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="models.html">Models</a></li>
+                    <li class="nav-item"><a class="nav-link" href="performance.html">Performance</a></li>
+                    <li class="nav-item"><a class="nav-link" href="history.html">History</a></li>
                 </ul>
             </div>
         </div>

@@ -128,6 +128,120 @@
             transform: translateY(0) !important;
         }
 
+        .navbar-toggler {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 10px;
+            border-radius: 6px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 2px rgba(213, 0, 28, 0.5);
+            outline: none;
+        }
+
+        /* --- MOBILE RESPONSIVE RULES --- */
+        @media (max-width: 991.98px) {
+            .navbar {
+                padding: 12px 0;
+            }
+
+            .navbar-collapse {
+                background: rgba(12, 12, 12, 0.98);
+                backdrop-filter: blur(25px);
+                -webkit-backdrop-filter: blur(25px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 12px;
+                padding: 18px 20px;
+                margin-top: 12px;
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+            }
+
+            .navbar-nav {
+                text-align: center;
+                gap: 5px;
+            }
+
+            .nav-link {
+                padding: 10px 0 !important;
+                font-size: 0.85rem !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            }
+
+            .nav-item:last-child .nav-link {
+                border-bottom: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 100px 15px 40px;
+            }
+
+            .page-header h1 {
+                font-size: clamp(2rem, 7vw, 2.6rem);
+                letter-spacing: -0.5px;
+            }
+
+            .page-header p {
+                font-size: 0.95rem !important;
+            }
+
+            .model-card {
+                margin-bottom: 25px;
+            }
+
+            .model-img-wrapper {
+                height: 220px;
+            }
+
+            .model-info {
+                padding: 20px 18px;
+            }
+
+            .model-info h3 {
+                font-size: 1.3rem;
+            }
+
+            .model-info p {
+                font-size: 0.88rem;
+            }
+
+            footer {
+                padding: 30px 15px;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-img {
+                height: 32px;
+            }
+
+            .page-header {
+                padding: 85px 15px 30px;
+            }
+
+            .page-header h1 {
+                font-size: clamp(1.75rem, 8vw, 2.2rem);
+            }
+
+            .model-img-wrapper {
+                height: 190px;
+            }
+
+            .model-info {
+                padding: 16px 14px;
+            }
+
+            .model-info h3 {
+                font-size: 1.15rem;
+            }
+
+            .model-info p {
+                font-size: 0.82rem;
+            }
+        }
+
         footer { background-color: #050505; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.03); text-align: center; font-size: 0.8rem; letter-spacing: 2px; color: #555; }
     </style>
 </head>
@@ -162,48 +276,56 @@
         <div class="container py-4">
             <div class="row">
                 <div class="col-lg-6 anim-up" style="transition-delay: 0.1s;">
-                    <div class="model-card">
-                        <div class="model-img-wrapper">
-                            <img src="https://d2niwqq19lf86s.cloudfront.net/htwritable/media/uploads/galleries/photos/uploads/galleries/61337-2016-porsche-911-carrera-gts/.thumbnails/ResMo_-_Voodoo_Blue_GTS_-_5000px-19.webp/ResMo_-_Voodoo_Blue_GTS_-_5000px-19-tiny-2048x0.webp" class="model-img" alt="Porsche 911">
+                    <a href="porsche911.html" class="text-decoration-none text-white d-block">
+                        <div class="model-card">
+                            <div class="model-img-wrapper">
+                                <img src="https://d2niwqq19lf86s.cloudfront.net/htwritable/media/uploads/galleries/photos/uploads/galleries/61337-2016-porsche-911-carrera-gts/.thumbnails/ResMo_-_Voodoo_Blue_GTS_-_5000px-19.webp/ResMo_-_Voodoo_Blue_GTS_-_5000px-19-tiny-2048x0.webp" class="model-img" alt="Porsche 911">
+                            </div>
+                            <div class="model-info">
+                                <h3>911 CARRERA</h3>
+                                <p>The timeless machine. The unmistakable silhouette that defines pure sports car DNA.</p>
+                            </div>
                         </div>
-                        <div class="model-info">
-                            <h3>911 CARRERA</h3>
-                            <p>The timeless machine. The unmistakable silhouette that defines pure sports car DNA.</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-lg-6 anim-up" style="transition-delay: 0.2s;">
-                    <div class="model-card">
-                        <div class="model-img-wrapper">
-                            <img src="https://ev-database.org/img/auto/Porsche_Taycan_GTS_2024/Porsche_Taycan_GTS_2024-01@2x.jpg" class="model-img" alt="Porsche Taycan">
+                    <a href="porschetaycan.html" class="text-decoration-none text-white d-block">
+                        <div class="model-card">
+                            <div class="model-img-wrapper">
+                                <img src="https://ev-database.org/img/auto/Porsche_Taycan_GTS_2024/Porsche_Taycan_GTS_2024-01@2x.jpg" class="model-img" alt="Porsche Taycan">
+                            </div>
+                            <div class="model-info">
+                                <h3>TAYCAN</h3>
+                                <p>Soul, electrified. The future of performance without sacrificing the Porsche feeling.</p>
+                            </div>
                         </div>
-                        <div class="model-info">
-                            <h3>TAYCAN</h3>
-                            <p>Soul, electrified. The future of performance without sacrificing the Porsche feeling.</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-lg-6 anim-up" style="transition-delay: 0.1s;">
-                    <div class="model-card">
-                        <div class="model-img-wrapper">
-                            <img src="https://cimg0.ibsrv.net/ibimg/hgm/1920x1080-1/100/676/2019-porsche-panamera_100676896.jpg" class="model-img" alt="Porsche Panamera">
+                    <a href="porschepanamera.html" class="text-decoration-none text-white d-block">
+                        <div class="model-card">
+                            <div class="model-img-wrapper">
+                                <img src="https://cimg0.ibsrv.net/ibimg/hgm/1920x1080-1/100/676/2019-porsche-panamera_100676896.jpg" class="model-img" alt="Porsche Panamera">
+                            </div>
+                            <div class="model-info">
+                                <h3>PANAMERA</h3>
+                                <p>Drive defines us. Luxury sedan comfort meets the apex-hunting precision of a sports car.</p>
+                            </div>
                         </div>
-                        <div class="model-info">
-                            <h3>PANAMERA</h3>
-                            <p>Drive defines us. Luxury sedan comfort meets the apex-hunting precision of a sports car.</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-lg-6 anim-up" style="transition-delay: 0.2s;">
-                    <div class="model-card">
-                        <div class="model-img-wrapper">
-                            <img src="https://cms-assets.autoscout24.com/uaddx06iwzdz/7KiuweZRWgwk53LbXjnvtJ/50345c7043b09775242d81560aca533d/Porsche-Macan-2025-Seitenansicht_2.jpg?w=1100" class="model-img" alt="Porsche Macan">
+                    <a href="porsche718.html" class="text-decoration-none text-white d-block">
+                        <div class="model-card">
+                            <div class="model-img-wrapper">
+                                <img src="https://cms-assets.autoscout24.com/uaddx06iwzdz/7KiuweZRWgwk53LbXjnvtJ/50345c7043b09775242d81560aca533d/Porsche-Macan-2025-Seitenansicht_2.jpg?w=1100" class="model-img" alt="Porsche Macan">
+                            </div>
+                            <div class="model-info">
+                                <h3>MACAN</h3>
+                                <p>Dare forward. The compact SUV that brings undeniable sports car character to everyday life.</p>
+                            </div>
                         </div>
-                        <div class="model-info">
-                            <h3>MACAN</h3>
-                            <p>Dare forward. The compact SUV that brings undeniable sports car character to everyday life.</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
